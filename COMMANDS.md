@@ -22,4 +22,6 @@ SELECT * from [table]; e.g select * from users
 ## Create Migrations
 ```
 php artisan make:migration create_hotel_tables --create=rooms
+
+php artisan migrate (executes any code changes in files)
 ```
