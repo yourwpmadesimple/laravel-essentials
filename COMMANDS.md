@@ -30,3 +30,14 @@ php artisan migrate (executes any code changes in files)
 ```
 php artisan db:seed
 ```
+
+## Controllers
+```
+php artisan make:controller ShowRoomsContoller --invokable
+```
+### ShowRoomsController
+```
+return response('A list of rooms', 200);
+Route::get('/rooms', [App\Http\Controllers\ShowRoomsController::class, '__invoke']); -> web.php
+```
+
