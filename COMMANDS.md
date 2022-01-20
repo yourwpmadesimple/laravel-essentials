@@ -63,3 +63,12 @@ public function index()
         \DB::table('bookings')->get()->dd();
     }
 ```
+
+## Index Action
+```
+public function index()
+    {
+        $bookings = DB::table('bookings')->get();
+        return view('bookings.index')->with('bookings', $bookings);
+    }
+```
