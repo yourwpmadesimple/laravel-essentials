@@ -43,7 +43,7 @@ return response('A list of rooms', 200);
 ```
 Route::get('/rooms', [App\Http\Controllers\ShowRoomsController::class, '__invoke']);
 ```
-### ShowRoomController MOD 1
+### ShowRoomsController MOD 1
 ```
 $rooms = DB::table('rooms')->get();
         if($request->query('id') !== null){
