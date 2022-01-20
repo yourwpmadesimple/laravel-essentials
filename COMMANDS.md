@@ -130,3 +130,15 @@ public function index()
 </table>
 @endsection
 ```
+
+### Create action for BookingController
+```
+public function create()
+    {
+        $users = DB::table('users')->get()->pluck('name', 'id')->append('none')->dd();
+        $rooms = DB::table('rooms')->get()->pluck('name', 'id');
+        return view('bookins.create')
+            ->with('users', $users)
+            ->with('rooms', $rooms);
+    }
+```
