@@ -38,6 +38,16 @@ php artisan make:controller ShowRoomsContoller --invokable
 ### ShowRoomsController
 ```
 return response('A list of rooms', 200);
-Route::get('/rooms', [App\Http\Controllers\ShowRoomsController::class, '__invoke']); -> web.php
 ```
-
+### web.php
+```
+Route::get('/rooms', [App\Http\Controllers\ShowRoomsController::class, '__invoke']);
+```
+### ShowRoomController MOD 1
+```
+$rooms = DB::table('rooms')->get();
+        if($request->query('id') !== null){
+            $rooms = $rooms->where('room_type_id', $request->query('id'));
+        }
+        return response()->json($rooms);
+'''
