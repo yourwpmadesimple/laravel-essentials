@@ -50,4 +50,16 @@ $rooms = DB::table('rooms')->get();
             $rooms = $rooms->where('room_type_id', $request->query('id'));
         }
         return response()->json($rooms);
-'''
+```
+
+## Resource Controller Action
+```
+php artisan make:controller BookingController --resource --model=Booking
+```
+### BookingController.php
+```
+public function index()
+    {
+        \DB::table('bookings')->get()->dd();
+    }
+```

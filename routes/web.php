@@ -29,10 +29,4 @@ Route::get('/test', function () {
 
 Route::get('/rooms', [App\Http\Controllers\ShowRoomsController::class, '__invoke']);
 
-Route::get('/bookings', 'BookingController@index');
-Route::get('/bookings/create', 'BookingController@create');
-Route::post('/bookings', 'BookingController@store');
-Route::get('/bookings/{booking}', 'BookingController@show');
-Route::get('/bookings/{booking}/edit', 'BookingController@edit');
-Route::put('/bookings/{booking}', 'BookingController@update');
-Route::delete('/bookings/{booking}', 'BookingController@destroy');
+Route::resource('/bookings', 'App\Http\Controllers\BookingController');
