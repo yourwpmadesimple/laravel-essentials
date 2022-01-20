@@ -25,3 +25,8 @@ php artisan make:migration create_hotel_tables --create=rooms
 
 php artisan migrate (executes any code changes in files)
 ```
+
+## Seeding
+```
+php artisan db:seed
+```
