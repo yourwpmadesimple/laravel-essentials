@@ -245,4 +245,4 @@ public function store(Request $request)
         ]);
         return redirect()->action('App\Http\Controllers\BookingController@index');
     }
-```
+```   
