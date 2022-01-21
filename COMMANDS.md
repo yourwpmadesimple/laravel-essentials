@@ -225,3 +225,24 @@ public function create()
 </div>
 @endsection
 ```
+
+### Store actions in BookingController.php
+```
+public function store(Request $request)
+    {
+        //dd($request->all());
+        $id = DB::table('bookings')->insertGetId([
+            'room_id' => $request->input('room_id'),
+            'start' => $request->input('start'),
+            'end' => $request->input('end'),
+            'is_reservation' => $request->input('is_reservation', false),
+            'is_paid' => $request->input('is_paid', false),
+            'notes' => $request->input('notes'),
+        ]);
+        DB::table('bookings_users')->insert([
+            'booking_id' => $id,
+            'user_id' => $request->input('user_id'),
+        ]);
+        return redirect()->action('App\Http\Controllers\BookingController@index');
+    }
+```
